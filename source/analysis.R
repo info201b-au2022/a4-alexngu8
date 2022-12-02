@@ -1,5 +1,6 @@
 library(tidyverse)
 
+
 # The functions might be useful for A4
 source("../source/a4-helpers.R")
 
@@ -20,8 +21,17 @@ test_query2 <- function(num=6) {
 
 ## Section 2  ---- 
 #----------------------------------------------------------------------------#
-# Your functions and variables might go here ... <todo: update comment>
+
+library("dplyr")
+library("tidyr")
+library("ggplot2")
+incarceration <- read.csv("https://raw.githubusercontent.com/vera-institute/incarceration-trends/master/incarceration_trends.csv.version")
+
 #----------------------------------------------------------------------------#
+get_data <- function(num_records=-1) {
+  fname <- "~/Documents/info201/assignments/incarceration_trends.csv"
+  df <- read.csv(fname, nrows=num_records)
+}
 
 ## Section 3  ---- 
 #----------------------------------------------------------------------------#
@@ -29,16 +39,29 @@ test_query2 <- function(num=6) {
 # Your functions might go here ... <todo:  update comment>
 #----------------------------------------------------------------------------#
 # This function ... <todo:  update comment>
-get_year_jail_pop <- function() {
-  # TODO: Implement this function 
-return()   
+
+get_year_jail_pop <- function(df) {
+    t <- incarceration_df %>%
+    group_by(state) %>%
+    summarise(p = sum(total_jail_pop, na.rm = TRUE)) %>%
+    filter(p == 0) %>%
+    select(state, p) %>%
+    pull(state)
+  return(t)   
 }
 
 # This function ... <todo:  update comment>
-plot_jail_pop_for_us <- function()  {
-  # TODO: Implement this function 
-  return()   
+plot_jail_pop_for_us <- function(df)  {
+  t <- incarceration_df %>%
+    group_by(state) %>%
+    summarise(p = sum(total_jail_pop, na.rm = TRUE)) %>%
+    filter(p == 0) %>%
+    select(state, p) %>%
+    pull(state)
+  return(t)   
 } 
+
+View(plot_jail_pop_for_us)
 
 ## Section 4  ---- 
 #----------------------------------------------------------------------------#
@@ -46,6 +69,30 @@ plot_jail_pop_for_us <- function()  {
 # Your functions might go here ... <todo:  update comment>
 # See Canvas
 #----------------------------------------------------------------------------#
+get_data <- function(num_records=-1) {
+  fname <- "~/Documents/info201/assignments/incarceration_trends.csv"
+  df <- read.csv(fname, nrows=num_records)
+}
+
+get_jail_pop_by_states <- function(df) {
+  t <- incarceration_df %>%
+    group_by(state) %>%
+    summarise(p = sum(total_jail_pop, na.rm = TRUE)) %>%
+    filter(p == 0) %>%
+    select(state, p) %>%
+    pull(state)
+  return(t)   
+}
+
+plot_jail_pop_by_states <- function(df) {
+  t <- incarceration_df %>%
+    group_by(state) %>%
+    summarise(p = sum(total_jail_pop, na.rm = TRUE)) %>%
+    filter(p == 0) %>%
+    select(state, p) %>%
+    pull(state)
+  return(t)   
+}
 
 ## Section 5  ---- 
 #----------------------------------------------------------------------------#

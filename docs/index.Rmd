@@ -1,6 +1,6 @@
 ---
 title: "Your A4 Report Title (TODO: Revise title)"
-author: "Your Name"
+author: "Alexis Nguyen"
 date: '2022-11-01'
 output: html_document
 ---
@@ -34,7 +34,7 @@ print(sum)
 ```
 
 ## Introduction 
-[TODO]
+## Mass incarceration causes 
 
 ## Data Summary 
 [TODO]
