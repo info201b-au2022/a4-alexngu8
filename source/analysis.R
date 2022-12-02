@@ -94,6 +94,9 @@ plot_jail_pop_by_states <- function(df) {
   return(t)   
 }
 
+plot <- ggplot(plot_jail_pop_by_states) +
+  ggtitle("plot") 
+
 ## Section 5  ---- 
 #----------------------------------------------------------------------------#
 # <variable comparison that reveals potential patterns of inequality>
@@ -107,6 +110,7 @@ plot_jail_pop_by_states <- function(df) {
 # Your functions might go here ... <todo:  update comment>
 # See Canvas
 #----------------------------------------------------------------------------#
+
 
 ## Load data frame ---- 
 
