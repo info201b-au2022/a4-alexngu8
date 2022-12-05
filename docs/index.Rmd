@@ -1,5 +1,5 @@
 ---
-title: "Your A4 Report Title (TODO: Revise title)"
+title: "Incarceration report"
 author: "Alexis Nguyen"
 date: '2022-11-01'
 output: html_document
@@ -11,35 +11,42 @@ source("../source/analysis.R")
 ```
 
 ## Abstract 
-[TODO: Include a short abstract (about 50 words)]
-
-# Test (TODO: Remove before submission!!)
-```{r echo=FALSE}
-q1_string <- test_query1()
-num <- 5
-```
-As you know, this is a markdown report. The [R Markdown Cheatsheet](https://www.rstudio.com/wp-content/uploads/2015/02/rmarkdown-cheatsheet.pdf) is **useful!**
-
-* Here's a test of a dynamic variable. Say **"`r q1_string`!!!** 
-* Here's another test. A vector
-of numbers: `r test_query2(num)`.
-
-Recall that _{r echo=TRUE}_ can be used to display the code, 
-which is very useful when developing and debugging a report. Here's an example: 
-
-```{r echo=TRUE}
-num <- 5
-sum <- sum(test_query2(num))
-print(sum)
-```
+The focus of this research project is that inequalities and restraints of mass incarceration in the United States.
+This is a issue because treatment pre, during, and post incarceration can affect day to day lives. With that being said
+I studied the inequities with data from the Vera Institude and analyzed it with my written code. 
 
 ## Introduction 
-## Mass incarceration causes 
+For this project, I analyzed the unfair treatment of mass incarceration in the United States and the multiple problems that linger around it. First, to credit my data, the Vera Institute is an organization that advocates for social injustice and includes mant resources on incarceration trends which I used in my code. in my code analysis I found some data points very surprising and would like to include those highlighted findings. 
 
-## Data Summary 
-[TODO]
+## Section 2 - Data Summary 
+```{r, echo=FALSE}
+avg_female_jail_pop
+highest_black_jail_pop
+black_jail_county_proportion_2002
+lowest_proportion_black_2002
+```
+For section 2, I coded all of my data to be pulled from 2002. These showed the average female population, highest number of black individuals, a list of proportions of black individuals, and finally the lowest proportion. I decided to do these because I was curious about the female population of incarceration and because I know regarding police treatment towards individuals I wanted to see if the numbers and proportions for black individuals would show a trend.
 
-[TODO ... other sections ... See Canvas for details]
+## Section 3
+```{r message=FALSE, warning=FALSE, error=FALSE, echo=TRUE}
+plot_jail_pop_for_us()
+```
+This chart shows the increase in population for jails in the United States, whichs shows the growth between each year. As seen in the chart, the prison population was steady from 1970 to 1980 and skyrocketed after that continuing to increase in size but then around 2005 started to steadily slow down.
 
-_All the very best with your work!_
+## Section 4
+```{r message=FALSE, warning=FALSE, echo=TRUE}
+plot_jail_pop_by_states()
+```
+This chart shows the increase of populatio in jails by state in the United States. Like I discussed in the introduction, California has the highest number of incarcerated individuals and that is shown here in the graph. Here this graph shows the trends for my selected states: Alabama, California, New York, Texas, and Washington. I chose Alabama because that is a state I know least about, Califronia and Washington I am most knowledged about, Texas because it is a large state, and New York has a big population. 
 
+## Section 5
+```{r echo=FALSE, eval=TRUE}
+plot_inequality()
+```
+This scatter plot shows the amount of incarcerated indivduals based on whether they are black or white. There is a clear trend, in the x axis where I assigned black jai population, there is huge max number up to 10,000 whereas for white jai population has numbers up to 6000. I see a sign of inequality here because of how big the margin is.
+
+## Section 6
+```{r echo=FALSE}
+black_value()
+```
+This map shows the percantage of Black incarceration per state. In this you can see it equally spread out through out the states with consistency in the western states but a higher percentage in Louisiana and Mississippi and towards the Southern states. And a dark grey to show none I believe. 
